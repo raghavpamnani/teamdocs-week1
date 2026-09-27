@@ -1,0 +1,39 @@
+name: Verify TeamDocs
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check app/static/app.js
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t teamdocs:test .
+      - name: Verify container startup and health
+        run: |
+          docker run -d --name teamdocs-test -p 127.0.0.1:8000:8000 -e DEMO_MODE=true teamdocs:test
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/health/ready; then exit 0; fi
+            sleep 2
+          done
+          docker logs teamdocs-test
+          exit 1
+      - name: Container logs
+        if: failure()
+        run: docker logs teamdocs-test || true
