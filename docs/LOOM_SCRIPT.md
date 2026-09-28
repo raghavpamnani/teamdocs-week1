@@ -30,7 +30,7 @@ If running behind schedule, skip the live GitHub import. Show its dialog briefly
 
 ## Suggested video description
 
-TeamDocs combines the Week 1 foundations into a working document workspace: authentication, role and tenant boundaries, secure file handling, approvals, CSV export, third-party API integration, Docker, CI and observability. The demo includes direct API checks proving that restricted and cross-tenant requests are blocked. Repository: add the public repository URL.
+TeamDocs combines the Week 1 foundations into a working document workspace: authentication, role and tenant boundaries, secure file handling, approvals, CSV export, third-party API integration, Docker, CI and observability. The demo includes direct API checks proving that restricted and cross-tenant requests are blocked. Repository: https://github.com/raghavpamnani/teamdocs-week1
 
 ## Email reply draft — send after recording
 
@@ -41,7 +41,7 @@ Here’s my Week 1 project: **TeamDocs**, a secure document workspace with tenan
 The demo also shows direct API checks for unauthorized and cross-tenant access, plus the automated test and container workflow.
 
 Loom: add your recording link
-GitHub: add the public repository link
+GitHub: https://github.com/raghavpamnani/teamdocs-week1
 
 Thanks!
 

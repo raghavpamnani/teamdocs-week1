@@ -1,10 +1,14 @@
 # TeamDocs
 
+[![Verify TeamDocs](https://github.com/raghavpamnani/teamdocs-week1/actions/workflows/ci.yml/badge.svg)](https://github.com/raghavpamnani/teamdocs-week1/actions/workflows/ci.yml)
+
 **A shared document workspace with clear ownership, review workflows, and tenant-aware access.**
 
 Built for Week 1 of the Production-Grade AI & LLM Systems Bootcamp. This project turns the five days of engineering foundations into one working application: sign in, upload a document, approve it, export the register, and verify the access boundaries through the API.
 
 TeamDocs is a document-management foundation for future AI workflows. It does **not** claim to provide AI answers, malware scanning, or enterprise-grade compliance.
+
+![TeamDocs document library](docs/screenshots/library.png)
 
 ## Run in two commands
 
