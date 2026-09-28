@@ -370,10 +370,10 @@ def seed(db, files):
     with db.connect() as conn:
         if conn.execute('SELECT COUNT(*) FROM users').fetchone()[0]: return
         password=hasher.hash('DemoPass123!')
-        people=[('alex','Alex Morgan','admin@teamdocs.demo'),('jamie','Jamie Chen','member@teamdocs.demo'),('sam','Sam Rivera','viewer@teamdocs.demo'),('taylor','Taylor Brooks','other@teamdocs.demo')]
+        people=[('alex','Alex Morgan','admin@teamdocs.demo'),('jamie','Jamie Chen','member@teamdocs.demo'),('rahul','Rahul','rahul@teamdocs.demo'),('sam','Sam Rivera','viewer@teamdocs.demo'),('taylor','Taylor Brooks','other@teamdocs.demo')]
         conn.executemany('INSERT INTO users VALUES(?,?,?,?)',[(i,n,e,password) for i,n,e in people])
         conn.executemany('INSERT INTO tenants VALUES(?,?)',[('northstar','Northstar Studio'),('orbit','Orbit Labs')])
-        conn.executemany('INSERT INTO memberships VALUES(?,?,?)',[('alex','northstar','admin'),('jamie','northstar','member'),('sam','northstar','viewer'),('taylor','orbit','admin')])
+        conn.executemany('INSERT INTO memberships VALUES(?,?,?)',[('alex','northstar','admin'),('jamie','northstar','member'),('rahul','northstar','member'),('sam','northstar','viewer'),('taylor','orbit','admin')])
         docs=[('Product launch brief.md','Product','approved','alex'),('API integration guide.md','Engineering','approved','jamie'),('Customer interview notes.txt','Research','review','jamie'),('Team onboarding checklist.md','Operations','approved','alex'),('Release readiness checklist.md','Engineering','review','jamie'),('Research participant register.csv','Research','approved','alex')]
         for index,(name,category,status,owner) in enumerate(docs):
             content=(f'# {name.rsplit(".",1)[0]}\n\nNorthstar Studio · Sample document\n\n## Purpose\nKeep our team aligned with clear ownership and reviewable decisions.\n\n## Next steps\n- Confirm the owner.\n- Review the proposal.\n- Record the decision.\n').encode()

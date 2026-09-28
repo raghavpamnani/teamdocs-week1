@@ -44,6 +44,7 @@ Use the role buttons on the login screen, or sign in manually. All sample accoun
 |---|---|---|
 | `admin@teamdocs.demo` | Administrator | Northstar Studio |
 | `member@teamdocs.demo` | Member | Northstar Studio |
+| `rahul@teamdocs.demo` | Member | Northstar Studio |
 | `viewer@teamdocs.demo` | Viewer | Northstar Studio |
 | `other@teamdocs.demo` | Administrator | Orbit Labs |
 
